@@ -1,0 +1,18 @@
+package com.xiaozan.common.corba.test2;
+
+import org.omg.CORBA.ORB;
+
+import com.xiaozan.common.corba.test2.getMessage.GetIt;
+import com.xiaozan.common.corba.test2.getMessage.GetItHelper;
+
+public class Client {
+	public static void main1(String[] args) {
+
+		// 创建一个ORB实例
+		ORB orb = ORB.init(args, null);
+		// 传入server实现类的的字符串（在这里直接把字符串粘贴进来了，没有再读取ior文件），从而拿到实现类
+		GetIt obj = GetItHelper.narrow(orb.string_to_object(
+				"IOR:000000000000001949444C3A6765744D6573736167652F47657449743A312E30000000000000000100000000000000A4000102000000000F3139322E3136382E3230382E34320000AE9500000000001F333338353036373933332F000146072205164219100630463814141B484C1B0000000003000000030000001A000000000000000F3139322E3136382E39352E3139390000AE9500000000000000000008000000004A41430000000001000000240000000000010001000000020001000F0501000100010109000000020501000100010100"));
+		System.out.println(obj.returnString("corba test"));
+	}
+}

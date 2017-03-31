@@ -1,0 +1,5 @@
+module getMessage {
+    interface GetIt {
+        string returnString(in string str);
+    };
+};

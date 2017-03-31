@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.xiaozan</groupId>
+		<artifactId>xiaozan-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>xiaozan-common</artifactId>
+	
+	<name>xiaozan-common</name>
+	<description>Demo project for Spring Boot</description>
+	
+	<properties>
+		<powermock.version>1.7.0RC4</powermock.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<!-- 之前的artifactId：spring-boot-starter-redis
+			 1.4 起使用spring-boot-starter-data-redis -->
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+        <!-- Starter for using Spring Batch -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
+		<!-- 用于模拟静态方法 -->
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+		<!-- Apache Commons Lang, a package of Java utility classes for the classes 
+			that are in java.lang's hierarchy, or are considered to be so standard as 
+			to justify existence in java.lang. -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+		<!-- The Apache Commons IO library contains utility classes, stream implementations, 
+			file filters, file comparators, endian transformation classes, and much more. -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<!-- Apache Commons Net library contains a collection of network utilities 
+			and protocol implementations. Supported protocols include: Echo, Finger, 
+			FTP, NNTP, NTP, POP3(S), SMTP(S), Telnet, Whois -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.6</version>
+		</dependency>
+		<!-- JSch is a pure Java implementation of SSH2 -->
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.54</version>
+		</dependency>
+		<!-- a JDBC Connection pooling / Statement caching library -->
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.2</version>
+		</dependency>
+		<!-- An JDBC datasource implementation. -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.29</version>
+		</dependency>
+		<!-- Apache Commons Compress software defines an API for working with compression 
+			and archive formats. These include: bzip2, gzip, pack200, lzma, xz, Snappy, 
+			traditional Unix Compress, DEFLATE and ar, cpio, jar, tar, zip, dump, 7z, 
+			arj. -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.13</version>
+		</dependency>
+		<!-- Guava is a suite of core and expanded libraries that include utility 
+			classes, google's collections, io classes, and much much more. Guava has 
+			only one code dependency - javax.annotation, per the JSR-305 spec. -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>21.0</version>
+		</dependency>
+		<!-- JacORB Core code -->
+        <dependency>
+		    <groupId>org.jacorb</groupId>
+		    <artifactId>jacorb</artifactId>
+		    <version>3.8</version>
+		</dependency>
+	</dependencies>
+</project>
