@@ -1,3 +1,8 @@
 spring:
-    main:
-        banner-mode: "console" #"console":控制台输出;"log":日志输出,"off":不输出。
+    profiles:
+      # 申明使用哪个配置文件(dev,prod,test)
+      # application.properties（默认读取）、
+      # application-dev.properties（开发环境）、
+      # application-prod.properties（生成环境）、
+      # application-test.properties（测试环境） 
+      active: dev

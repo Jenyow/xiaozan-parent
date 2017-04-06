@@ -1,4 +1,6 @@
 package com.xiaozan.web.xiaozan;
+
+import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,7 +13,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebApplication {
 
 	public static void main(String[] args) {
-		
-		SpringApplication.run(WebApplication.class, args);
+		SpringApplication springApplication = new SpringApplication(WebApplication.class);
+		/*
+		 * "console":控制台输出; "log":日志输出; "off":不输出。
+		 */
+		springApplication.setBannerMode(Mode.CONSOLE);
+		springApplication.run(args);
+
 	}
 }

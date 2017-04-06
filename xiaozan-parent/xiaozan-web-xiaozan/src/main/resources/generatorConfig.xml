@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	
+	<properties resource="generatorConfig.properties"/>
+	
+	<!-- 
+		元素类型为 "context" 的内容必须匹配 (注意顺序)
+		"(property*,plugin*,commentGenerator?,(connectionFactory|jdbcConnection),
+		javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)"。 
+	-->
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+	
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+        <!-- 
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" /> 
+        -->
+        
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+	
+		<!-- 元素定义如何连接目标数据库 -->
+		<jdbcConnection driverClass="${driver}"
+                        connectionURL="${url}" userId="${username}" password="${password}">
+        </jdbcConnection>
+
+		<!-- 
+			targetProject:被假定为一个已存在的目录结构。 如果目录结构不存在MBG将会失败.
+			targetPackage:将会转换为 targetProject 适当的子目录结构。 如果有必要，MBG会创建这些子目录。 
+			
+			enableSubPackages:Java模型生成器应该使用子包。 
+							       这意味着在这种情况下生成的模型对象将被放置在名为 test.model.db2admin 的包中（因为表在 DB2ADMIN schema中）。 
+							       如果 enableSubPackages 属性设置为 false， 那么包名将会是 test.model。 
+							  Java模型生成器也应该对字符串进行trim操作。
+							        这意味着任何字符串属性的setter方法将调用trim方法 - 如果您的数据库可能会在字符末尾返回空白符，这是非常有用的。
+							       
+		-->
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<!-- 元素来指定生成 Java 模型对象所属的包 -->
+		<javaModelGenerator targetPackage="com.xiaozan.web.xiaozan.pojo"
+			targetProject="src/main/java">
+			<property name="constructorBased" value="true" />
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 元素来指定生成 SQL 映射文件所属的包和的目标项目 -->
+		<sqlMapGenerator targetPackage="com.xiaozan.web.xiaozan.sqlmap"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 元素来指定目标包和目标项目生成的客户端接口和类 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.xiaozan.web.xiaozan.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table schema="DB2ADMIN" tableName="users" domainObjectName="User">
+			<property name="constructorBased" value="true" />
+            <property name="useActualColumnNames" value="false" />
+            <property name="ignoreQualifiersAtRuntime" value="true" />
+		</table>
+		
+	</context>
+	
+</generatorConfiguration>
