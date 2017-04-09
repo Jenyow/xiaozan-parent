@@ -3,6 +3,7 @@ package com.xiaozan.web.xiaozan;
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /*
  * @SpringBootApplication same as: 
@@ -10,6 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @EnableAutoConfiguration:是spring boot语法，表示将使用自动配置
 */
 @SpringBootApplication
+/*
+ * @ServletComponentScan使spring能够扫描到我们自己编写的servlet和filter
+ * */
+@ServletComponentScan
 public class WebApplication {
 
 	public static void main(String[] args) {

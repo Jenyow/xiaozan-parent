@@ -15,8 +15,8 @@ public class UserController {
 	private IUserService userService;
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String getUserById(String id) {
-		User user = userService.getUserById(id);
+	public String getUserById(String username) {
+		User user = userService.getUserById(username);
 		String userStr = JSON.toJSONString(user);
 		return userStr;
 	}
