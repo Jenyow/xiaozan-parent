@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.xiaozan</groupId>
+		<artifactId>xiaozan-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>xiaozan-springfox</artifactId>
+	<packaging>jar</packaging>
+
+	<name>xiaozan-springfox</name>
+	<description>swagger支持</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springfox.version>2.6.1</springfox.version>
+	</properties>
+
+	<dependencies>
+		<!-- springfox -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-data-rest</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+		<!--petStore是官方提供的一个代码参考, 可用于后期写文档时进行参考, 可不加 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-petstore</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+		<!-- springfox END -->
+	</dependencies>
+</project>

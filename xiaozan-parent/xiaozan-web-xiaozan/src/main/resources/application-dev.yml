@@ -140,8 +140,3 @@ spring:
         logAbandoned: true
         
         # statementExecutableSqlLogEnable: true
-        
-mybatis: 
-  mapperLocations: classpath:mapper/*.xml
-  typeAliasesPackage: com.xiaozan.web.xiaozan.mapper.model
-

@@ -24,6 +24,7 @@ public class WebApplication {
 		 */
 		springApplication.setBannerMode(Mode.CONSOLE);
 		springApplication.run(args);
-
+		
 	}
+
 }

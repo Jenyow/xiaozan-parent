@@ -13,17 +13,20 @@
 		javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)"。 
 	-->
 	<context id="DB2Tables" targetRuntime="MyBatis3">
-	
+		<!-- 这个插件给由MBG生成的Java模型对象增加了equals和hashCode方法 -->
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <!-- 这个插件给由MBG生成的Javas添加了java.io.Serializable标记接口。这个插件给实体类增加了serialVersionUID字段。 -->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- 该插件给Example类添加方法（实际上是给Criteria内部类）来支持不区分大小写的LIKE搜索 -->
         <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
-        <!-- 
+        <!-- 该插件给实体类添加toString()方法。 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" /> 
-        -->
         
         <commentGenerator>
-            <property name="suppressDate" value="true" />
-            <property name="suppressAllComments" value="true" />
+        	<!-- 设置为false,生成的注释包含代码生成的时间 -->
+            <property name="suppressDate" value="false" />
+            <!-- 设置为false,运行多次插件,不会生成重复的内容 -->
+            <property name="suppressAllComments" value="false" />
         </commentGenerator>
 	
 		<!-- 元素定义如何连接目标数据库 -->
@@ -34,13 +37,11 @@
 		<!-- 
 			targetProject:被假定为一个已存在的目录结构。 如果目录结构不存在MBG将会失败.
 			targetPackage:将会转换为 targetProject 适当的子目录结构。 如果有必要，MBG会创建这些子目录。 
-			
 			enableSubPackages:Java模型生成器应该使用子包。 
 							       这意味着在这种情况下生成的模型对象将被放置在名为 test.model.db2admin 的包中（因为表在 DB2ADMIN schema中）。 
 							       如果 enableSubPackages 属性设置为 false， 那么包名将会是 test.model。 
 							  Java模型生成器也应该对字符串进行trim操作。
 							        这意味着任何字符串属性的setter方法将调用trim方法 - 如果您的数据库可能会在字符末尾返回空白符，这是非常有用的。
-							       
 		-->
 
 		<javaTypeResolver>
@@ -56,7 +57,8 @@
 		</javaModelGenerator>
 
 		<!-- 元素来指定生成 SQL 映射文件所属的包和的目标项目 -->
-		<sqlMapGenerator targetPackage="com.xiaozan.web.xiaozan.sqlmap"
+		<!-- 如果目标是MyBatis3，那么只有当您选择javaClientGenerator需要XML时，他才是 <context> 元素的一个必须的子元素。 -->
+		<sqlMapGenerator targetPackage="mybatis.com.xiaozan.web.xiaozan.mapper"
 			targetProject="src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>

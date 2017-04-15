@@ -1,0 +1,6 @@
+springfox:
+  documentation:
+    # 这个path就是json的访问request mapping.可以自定义，防止与自身代码冲突。
+    swagger.v2.path: /api-docs
+    # 测试时需要设置IP和端口
+    swagger.v2.host: localhost:8080

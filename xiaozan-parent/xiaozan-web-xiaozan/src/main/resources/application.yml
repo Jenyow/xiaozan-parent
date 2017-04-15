@@ -6,3 +6,12 @@ spring:
       # application-prod.properties（生成环境）、
       # application-test.properties（测试环境） 
       active: dev
+
+server:
+  contextPath: /xiaozan-web-xiaozan
+  port: 8080
+  
+springfox:
+  documentation:
+    swagger.v2.path: /api-docs
+    swagger.v2.host: localhost:8080
