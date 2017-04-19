@@ -4,6 +4,9 @@ import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Import;
+
+import com.xiaozan.druid.config.DruidDataSourceConfig;
 
 /*
  * @SpringBootApplication same as: 
@@ -15,6 +18,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  * @ServletComponentScan使spring能够扫描到我们自己编写的servlet和filter
  * */
 @ServletComponentScan
+/*
+ * 从其他模块引入使用配置@Import注解 
+ */
+@Import(DruidDataSourceConfig.class)
 public class WebApplication {
 
 	public static void main(String[] args) {
